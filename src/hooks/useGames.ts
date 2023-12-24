@@ -16,10 +16,10 @@ export interface Game {
     metacritic: number;
   }
   
-  interface FetchGamesResponse {
+interface FetchGamesResponse {
     count: number;
     results: Game[];
-  }
+}
   
 
 
