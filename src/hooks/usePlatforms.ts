@@ -1,0 +1,13 @@
+import useData from "./useData";
+
+
+interface Platform {
+    id: number;
+    name: string;
+    sulg: string;
+}
+
+
+const usePlatform = () => useData<Platform>('/platforms/lists/parents');
+
+export default usePlatform;
