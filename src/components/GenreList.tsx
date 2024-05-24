@@ -20,12 +20,13 @@ const GenreList = ({ selectedGenre, onSelectedGenre }: Props) => {
 
   if (error) return;
 
+  if (isLoading) return <Spinner></Spinner>;
+
   return (
     <>
       <Heading fontSize="2xl" marginBottom={3}>
         Genres
       </Heading>
-      {isLoading && <Spinner />}
       <List>
         {data.map((genre) => (
           <ListItem key={genre.id} paddingY="5px">
