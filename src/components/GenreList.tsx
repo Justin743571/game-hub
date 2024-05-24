@@ -7,6 +7,7 @@ import {
   Spinner,
 } from "@chakra-ui/react";
 import useGenres, { Genre } from "../hooks/useGenres";
+import noImage from "../assets/no-image-placeholder.webp";
 
 interface Props {
   selectedGenre: Genre | null;
@@ -26,7 +27,7 @@ const GenreList = ({ selectedGenre, onSelectedGenre }: Props) => {
           <ListItem key={genre.id} paddingY="5px">
             <HStack>
               <Image
-                src={genre.image_background}
+                src={genre.image_background || noImage}
                 boxSize="32px"
                 borderRadius={8}
               />
