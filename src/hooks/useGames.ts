@@ -14,23 +14,23 @@ export interface Game {
   rating_top: number;
 }
 
-const useGames = (gameQuery: GameQuery,pageSize:number) =>
+const useGames = (gameQuery: GameQuery, pageSize: number) =>
   useInfiniteQuery<FetchResponse<Game>, Error>({
     queryKey: ["games", gameQuery],
-    queryFn: ({pageParam=1}) =>
+    queryFn: ({ pageParam = 1 }) =>
       apiClient.getAll({
         params: {
-          genres: gameQuery.genre?.id,
-          parent_platforms: gameQuery.platform?.id,
+          genres: gameQuery.genreId,
+          parent_platforms: gameQuery.platformId,
           ordering: gameQuery.sortOrder,
           search: gameQuery.searchText,
-          page:pageParam
+          page: pageParam,
         },
       }),
-    getNextPageParam:(lastPage,allPage) =>{
-      return lastPage.next ? allPage.length+1 : undefined;
+    getNextPageParam: (lastPage, allPage) => {
+      return lastPage.next ? allPage.length + 1 : undefined;
     },
-    staleTime:24*60*60*1000 //24h
+    staleTime: 24 * 60 * 60 * 1000, //24h
   });
 
 export default useGames;
