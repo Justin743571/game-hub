@@ -7,7 +7,7 @@ interface Props {
   game: Game;
 }
 
-const GameAttibutes = ({ game }: Props) => {
+const GameAttributes = ({ game }: Props) => {
   return (
     <SimpleGrid columns={2} as="dl">
       <DefinitionItem term="Platforms">
@@ -32,4 +32,4 @@ const GameAttibutes = ({ game }: Props) => {
   );
 };
 
-export default GameAttibutes;
+export default GameAttributes;
